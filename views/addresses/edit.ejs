@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Editer les Adresses</title>
+  <link rel='stylesheet' href='<%= basePath %>/stylesheets/style.css' />
+</head>
+
+<body>
+  <%
+  let envie = address.categorie_envie;
+  let quartier = address.categorie_quartier;
+  let typeAdresse = address.categorie_type;
+  function putCheckbox(type, name, tab, value){
+    let checked = '';
+    for (i=0; i <= tab.length; i++ ) {
+      if (tab[i] === value){
+        checked = 'checked';
+      } else if (typeAdresse === value){
+        checked = 'checked';
+      }
+    } %>
+    <td><input type="<%= type %>" name="<%= name %>" value="<%= value %>" <%=checked %>/></td>
+    <% } %>
+    <div class="container">
+      <div class="main-menu">
+        <h3><a href="<%= basePath %>/addresses">Liste des adresses</a></h3>
+        <h3><a href="<%= basePath %>/addresses/create">Créer une adresse</a></h3>
+        <h3><a href="<%= basePath %>/notifications">Créer une notification</a></h3>
+        <h3><a href="<%= basePath %>/logout">Logout</a></h3>
+      </div>
+      <h1>Modifier une adresse</h1>
+      <form action="<%= basePath %>/addresses/update/<%= address._id%>" enctype="multipart/form-data" method="post">
+        <div class="container-1">
+          <br><br>
+          <h2>Informations adresse</h2>
+          <hr>
+          <br>
+          <div class="container-1-1">
+            <div class="container-1-1-1">
+              <div class="element">
+                <input type="text" name="nom" placeholder="Nom" value="<%= address.nom %>" required/>
+              </div>
+              <div class="element">
+
+
+
+                <!-- IMAGE UPLOAD 1 -->
+                <input type="file" name="image_carrousel" multiple accept="image/*"/>
+                <br><br>
+                Chemin image carrousel actuelle (ne pas éditer)
+                <p><%= address.image_carrousel %></p>
+              </div>
+              <div class="element-1">
+                <% putCheckbox('radio', 'categorie_type', typeAdresse, 'type 1')%>
+
+                <label for="contactChoice1">type 1</label>
+
+                <% putCheckbox('radio', 'categorie_type', typeAdresse, 'type 2')%>
+
+                <label for="contactChoice2">type 2</label>
+
+                <% putCheckbox('radio', 'categorie_type', typeAdresse, 'type 3')%>
+
+                <label for="contactChoice3">type 3</label>
+              </div>
+            </div>
+            <div class="container-1-1-2">
+              <div class="element">
+                <textarea name="description_fr" placeholder="Description FR" required><%= address.description_fr %></textarea>
+              </div>
+              <div class="element">
+                <textarea name="description_eng" placeholder="Description ENG" required><%= address.description_eng %></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="container-1-2">
+            <div class="element">
+              <input type="text" name="numero" placeholder="Numéro de rue" value="<%= address.numero %>" required/>
+              <input type="text" name="voie" placeholder="Voie" value="<%= address.voie %>" required/>
+              <input type="text" name="code_postal" placeholder="Code postal" value="<%= address.code_postal %>" required/>
+              <input type="text" name="ville" placeholder="Ville" value="<%= address.ville %>" required/>
+            </div>
+            <div class="element">
+              <input type="text" name="lat" placeholder="Latitude" value="<%= address.lat %>" required/>
+              <input type="text" name="long" placeholder="Longitude" value="<%= address.long %>" required/>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-2">
+          <br><br>
+          <h2>Informations webview</h2>
+          <hr>
+          <br>
+          <div class="container-2-1">
+            <div class="container-2-1-1">
+              <div class="element">
+
+
+
+                <!-- UPLOAD 2 -->
+                <input type="file" name="image_webview" multiple accept="image/*"/>
+                <br><br>
+                Chemin image webview actuelle (ne pas éditer)
+
+                <p><%= address.image_webview %></p>
+              </div>
+            </div>
+            <div class="container-2-1-2">
+
+              <div class="element">
+                <textarea name="description_webview_fr" placeholder="Description webview FR" required><%= address.description_webview_fr %></textarea>
+              </div>
+              <div class="element">
+                <textarea name="description_webview_eng" placeholder="Description webview ENG" required><%= address.description_webview_eng %></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-3">
+          <br><br>
+          <h2>Informations catégories</h2>
+          <hr>
+          <br>
+          <div class="container-3-1">
+
+
+            <div class="element">
+              <table>
+                <tr>
+                  <td class="title-cell" rowspan="5">
+                    <h3>Catégorie envie</h3>
+                  </td>
+                  <tr>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 1')%>
+                    <td class="data-cell">envie 1</td>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 2')%>
+                    <td class="data-cell">envie 2</td>
+                  </tr>
+                  <tr>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 3')%>
+                    <td class="data-cell">envie 3</td>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 4')%>
+                    <td class="data-cell">envie 4</td>
+                  </tr>
+                  <tr>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 5')%>
+                    <td class="data-cell">envie 5</td>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 6')%>
+                    <td class="data-cell">envie 6</td>
+                  </tr>
+                  <tr>
+                    <% putCheckbox('checkbox', 'categorie_envie', envie, 'envie 7')%>
+                    <td class="data-cell">envie 7</td>
+                  </tr>
+                </tr>
+                <tr>
+                  <td colspan="5"><br>
+                    <hr><br></td>
+                  </tr>
+                  <tr>
+                    <td class="title-cell" rowspan="7">
+                      <h3>Catégorie quartier</h3>
+                    </td>
+                    <tr>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 1')%>
+                      <td class="data-cell">quartier 1</td>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 2')%>
+                      <td class="data-cell">quartier 2</td>
+                    </tr>
+                    <tr>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 3')%>
+                      <td class="data-cell">quartier 3</td>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 4')%>
+                      <td class="data-cell">quartier 4</td>
+                    </tr>
+                    <tr>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 5')%>
+                      <td class="data-cell">quartier 5</td>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 6')%>
+                      <td class="data-cell">quartier 6</td>
+                    </tr>
+                    <tr>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 7')%>
+                      <td class="data-cell">quartier 7</td>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 8')%>
+                      <td class="data-cell">quartier 8</td>
+                    </tr>
+                    <tr>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 9')%>
+                      <td class="data-cell">quartier 9</td>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 10')%>
+                      <td class="data-cell">quartier 10</td>
+                    </tr>
+                    <tr>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 11')%>
+                      <td class="data-cell">quartier 11</td>
+                      <% putCheckbox('checkbox', 'categorie_quartier', quartier, 'quartier 12')%>
+                      <td class="data-cell">quartier 12</td>
+                    </tr>
+                  </tr>
+                </table>
+              </div>
+              <br><br><br>
+              <input class="save-button" type="submit" value="SAUVER LES MODIFICATIONS" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </body>
+
+    </html>

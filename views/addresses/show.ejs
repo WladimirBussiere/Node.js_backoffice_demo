@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Address Detail</title>
+    <link rel='stylesheet' href='<%= basePath %>/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-menu">
+        <h3><a href="<%= basePath %>/addresses">Liste des adresses</a></h3>
+        <h3><a href="<%= basePath %>/addresses/create">Créer une adresse</a></h3>
+        <h3><a href="<%= basePath %>/notifications">Créer une notification</a></h3>
+      </div>
+      <h1>Détails de l'adresse</h1>
+      <table class="index-table">
+
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Description FR</th>
+            <th>Description ENG</th>
+            <th>Localisation</th>
+            <th>Image carrousel</th>
+            <th>Catégorie envie</th>
+            <th>Catégorie quartier</th>
+            <th>Catégorie type</th>
+          </tr>
+        </thead>
+          <tbody>
+          <tr>
+            <td><%= address.nom %></td>
+            <td><%= address.description_fr %></td>
+            <td><%= address.description_eng %></td>
+            <td><%= address.numero %>
+            <%= address.voie %>
+            <%= address.code_postal %>
+            <%= address.ville %>
+            <%= address.lat %>
+            <%= address.long %></td>
+            <td width="20%"><img src="<%= basePath %><%= address.image_carrousel %>"width="100%"></td>
+            <td><%= address.categorie_envie %></td>
+            <td><%= address.categorie_quartier %></td>
+            <td><%= address.categorie_type %></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="index-table">
+        <thead>
+          <tr>
+            <th>Image webview</th>
+            <th>Description webview FR</th>
+            <th>Description webview ENG</th>
+          </tr>
+        </thead>
+          <tbody>
+          <tr>
+            <td width="20%"><img src="<%= basePath %><%= address.image_webview %>" width="100%"></td>
+            <td><%= address.description_webview_fr %></td>
+            <td><%= address.description_webview_eng %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container-show">
+<div class="save-button">
+      <a href="<%= basePath %>/addresses/edit/<%= address._id%>">
+        <div class="edit-button">
+          MODIFIER
+        </div>
+      </a>
+    </div>
+      <form class="save-button" action="<%= basePath %>/addresses/delete/<%= address._id%>" method="post">
+        <button type="submit">SUPPRIMER</button>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>

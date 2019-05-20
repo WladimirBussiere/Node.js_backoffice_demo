@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Création d'adresses</title>
+  <link rel='stylesheet' href='<%= basePath %>/stylesheets/style.css' />
+
+</head>
+
+<body>
+  <% if(errorMessage !== null) { %>
+  <div class="error-message">
+    <%= errorMessage %>
+  </div>
+  <% } %>
+  <div class="container">
+    <div class="main-menu">
+      <h3><a href="<%= basePath %>/addresses">Liste des adresses</a></h3>
+      <h3><a href="<%= basePath %>/addresses/create">Créer une adresse</a></h3>
+      <h3><a href="<%= basePath %>/notifications">Créer une notification</a></h3>
+      <h3><a href="<%= basePath %>/logout">Logout</a></h3>
+    </div>
+    <h1>Créer une nouvelle adresse</h1>
+    <form action="<%= basePath %>/addresses/save" enctype="multipart/form-data" method="post">
+      <div class="container-1">
+        <br><br>
+        <h2>Informations adresse</h2>
+        <hr>
+        <br>
+        <div class="container-1-1">
+          <div class="container-1-1-1">
+            <div class="element">
+              <input type="text" name="nom" placeholder="Nom" required/>
+            </div>
+            <div class="element">
+              <input type="file" name="image_carrousel" multiple accept="image/*" required/>
+            </div>
+            <div class="element-1">
+              <input type="radio" id="contactChoice1" name="categorie_type" value="type 1">
+              <label for="contactChoice1">type 1</label>
+
+              <input type="radio" id="contactChoice2" name="categorie_type" value="type 2">
+              <label for="contactChoice2">type 2</label>
+
+              <input type="radio" id="contactChoice3" name="categorie_type" value="type 3">
+              <label for="contactChoice3">type 3</label>
+            </div>
+          </div>
+          <div class="container-1-1-2">
+            <div class="element">
+              <textarea name="description_fr" placeholder="Description FR" required></textarea>
+            </div>
+            <div class="element">
+              <textarea name="description_eng" placeholder="Description ENG" required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="container-1-2">
+          <div class="element">
+            <input type="text" name="numero" placeholder="Numéro de rue" required/>
+            <input type="text" name="voie" placeholder="Voie" required/>
+            <input type="text" name="code_postal" placeholder="Code postal" required/>
+            <input type="text" name="ville" placeholder="Ville" required/>
+          </div>
+          <div class="element">
+            <input type="text" name="lat" placeholder="Latitude" required/>
+            <input type="text" name="long" placeholder="Longitude" required/>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-2">
+        <br><br>
+        <h2>Informations webview</h2>
+        <hr>
+        <br>
+        <div class="container-2-1">
+          <div class="container-2-1-1">
+            <div class="element">
+              <input type="file" name="image_webview" multiple accept="image/*" required/>
+            </div>
+          </div>
+          <div class="container-2-1-2">
+
+            <div class="element">
+              <textarea name="description_webview_fr" placeholder="Description webview FR" required></textarea>
+            </div>
+            <div class="element">
+              <textarea name="description_webview_eng" placeholder="Description webview ENG" required></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-3">
+        <br><br>
+        <h2>Informations catégories</h2>
+        <hr>
+        <br>
+        <div class="container-3-1">
+          <div class="element">
+            <table>
+              <tr>
+                <td class="title-cell" rowspan="5">
+                  <h3>Catégorie envie</h3>
+                </td>
+                <tr>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 1" /></td>
+                  <td class="data-cell">envie 1</td>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 2" /></td>
+                  <td class="data-cell">envie 2</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 3" /></td>
+                  <td class="data-cell">envie 3</td>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 4" /></td>
+                  <td class="data-cell">envie 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 5" /></td>
+                  <td class="data-cell">envie 5</td>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 6" /></td>
+                  <td class="data-cell">envie 6</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_envie" value="envie 7" /></td>
+                  <td class="data-cell">envie 7</td>
+                </tr>
+              </tr>
+              <tr>
+                <td colspan="5"><br>
+                <hr><br></td>
+              </tr>
+              <tr>
+                <td class="title-cell" rowspan="7">
+                  <h3>Catégorie quartier</h3>
+                </td>
+                <tr>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 1" /></td>
+                  <td class="data-cell">quartier 1</td>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 2" /></td>
+                  <td class="data-cell">quartier 2</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 3" /></td>
+                  <td class="data-cell">quartier 3</td>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 4" /></td>
+                  <td class="data-cell">quartier 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 5" /></td>
+                  <td class="data-cell">quartier 5</td>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 6" /></td>
+                  <td class="data-cell">quartier 6</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 7" /></td>
+                  <td class="data-cell">quartier 7</td>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 8" /></td>
+                  <td class="data-cell">quartier 8</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 9" /></td>
+                  <td class="data-cell">quartier 9</td>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 10" /></td>
+                  <td class="data-cell">quartier 10</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 11" /></td>
+                  <td class="data-cell">quartier 11</td>
+                  <td><input type="checkbox" name="categorie_quartier" value="quartier 12" /></td>
+                  <td class="data-cell">quartier 12</td>
+                </tr>
+              </tr>
+            </table>
+          </div>
+          <br><br><br>
+          <input class="save-button" type="submit" value="SAUVER" />
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

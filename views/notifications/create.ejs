@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel='stylesheet' href='<%= basePath %>/stylesheets/style.css'/>
+
+  </head>
+  <body>
+  <% if(successMessage !== null) { %>
+    <div class="success-message">
+      <%= successMessage %>
+    </div>
+    <% } %>
+    <div class="container">
+      <div class="main-menu">
+        <h3><a href="<%= basePath %>/addresses">Liste des adresses</a></h3>
+        <h3><a href="<%= basePath %>/addresses/create">Créer une adresse</a></h3>
+        <h3><a href="<%= basePath %>/notifications">Créer une notification</a></h3>
+        <h3><a href="<%= basePath %>/logout">Logout</a></h3>
+      </div>
+      <h1>Créer une nouvelle notification</h1>
+      <form action="<%= basePath %>/notifications/send" enctype="multipart/form-data" method="post">
+      <br><br>
+      <h2>Informations webview</h2>
+      <hr>
+      <br>
+      <div class="container-2-1">
+        <div class="container-2-1-1">
+          <div class="element">
+            <input name="imageNotification" type="file" accept="image/*" >
+          </div>
+        </div>
+        <div class="container-2-1-2">
+
+          <div class="element">
+            <textarea name="backOfficeMessageFR" placeholder="Notification push FR" required></textarea>
+          </div>
+          <div class="element">
+            <textarea name="backOfficeMessageENG" placeholder="Notification push ENG" required></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="container-3-1">
+      <br><br>
+      <button class="save-button" type="submit" onclick="if (confirm('Voulez vous envoyer la notification ?')) {sendMessage(this);} else {return false};">ENVOYER LA NOTIFICATION</button>
+
+    </div>
+  </form>
+
+
+  </div>
+  <script type="text/javascript">
+  function sendMessage(this1)
+  {
+    this1.disabled=true;
+    this1.form.submit();
+    this1.innerHTML='ENVOI EN COURS<i class="fa fa-spinner fa-spin" style="font-size:24px;color:white;margin-left:5px"></i> ';
+  }
+  </script>
+  </body>
+</html>

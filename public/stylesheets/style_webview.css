@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Maneo';
+  src: url('./fonts_webview/Maneo.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Maneo_TRIAL';
+  src: url('./fonts_webview/Maneo_TRIAL.otf') format('embedded-opentype'),
+  url('./fonts_webview/Maneo_TRIAL.ttf') format('truetype');
+
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body{
+  max-width: 400px;
+  background-color: white;
+
+}
+.banner{
+
+}
+
+.title-wrapper{
+  background-color: #0b8d25;
+  width: 100%;
+  font-family: 'Maneo', 'Maneo_TRIAL';
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  border-top: 4px solid white;
+  padding: 0;
+  margin: 0;
+  line-height: 40px;
+}
+
+.text-design{
+  color: #0b8d25;
+  font-family: Arial;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.line-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.line{
+  border-bottom: 2px solid #0b8d25;
+  width: 60px;
+  position: relative;
+  text-align: center;
+  /*margin-left: 170px;*/
+  margin-top: 10px;
+}
+
+.footer-logo{
+  text-align: center;
+  margin-top: 40px;
+}

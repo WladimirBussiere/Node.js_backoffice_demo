@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des adresses</title>
+    <link rel='stylesheet' type='text/css' href='<%= basePath %>/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-menu">
+        <h3><a href="<%= basePath %>/addresses">Liste des adresses</a></h3>
+        <h3><a href="<%= basePath %>/addresses/create">Créer une adresse</a></h3>
+        <h3><a href="<%= basePath %>/notifications">Créer une notification</a></h3>
+        <h3><a href="<%= basePath %>/logout">Logout</a></h3>
+      </div>
+      <h1>Liste des adresses</h1>
+      <% if(addresses.length>0) { %>
+      <table class="index-table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Webview</th>
+            <th>Catégorie type</th>
+            <th>Numero</th>
+            <th>Voie</th>
+            <th>Code postal</th>
+            <th>Ville</th>
+            <th>Catégorie envie</th>
+            <th>Catégorie quartier</th>
+
+          </tr>
+        </thead>
+        <tbody >
+
+          <% for(var i=0; i<addresses.length;i++) { %>
+            <tr>
+              <td><a href="<%= basePath %>/addresses/show/<%= addresses[i]._id%>"><%= addresses[i].nom%></a></td>
+              <td><a href="<%= basePath %>/webviews/index/<%= addresses[i]._id%>/fr">webview <%= addresses[i].nom%></td>
+              <td><%=addresses[i].categorie_type%></td>
+              <td><%=addresses[i].numero%></td>
+              <td><%=addresses[i].voie%></td>
+              <td><%=addresses[i].code_postal%></td>
+              <td><%=addresses[i].ville%></td>
+              <td><%=addresses[i].categorie_envie%></td>
+              <td><%=addresses[i].categorie_quartier%></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <div>Aucune adresse trouvée</div>
+      <% } %>
+    </div>
+  </body>
+</html>

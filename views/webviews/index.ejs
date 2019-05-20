@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>TITLE</title>
+
+  <link rel="stylesheet" type="text/css" href="<%= basePath %>/stylesheets/style_webview.css">
+
+</head>
+<body>
+  <script type="text/javascript">
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+  </script>
+  <div class="banner" style="background-size: cover;background-position: center;"><img src="<%= basePath %><%= address.image_webview %>" alt="" style=" width: 100%;background-size: cover;background-position: right;"></div>
+  <div class="title-wrapper"><%= address.nom %></div>
+  <div>
+    <p class="text-design">
+      <%
+        let description_carrousel = '';
+        let description_webview = '';
+
+       if (lang === "fr"){
+        description_carrousel = address.description_fr;
+        description_webview = address.description_webview_fr.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        } else {
+        description_carrousel = address.description_eng;
+        description_webview = address.description_webview_eng.replace(/(?:\r\n|\r|\n)/g, '<br>');
+      }%>
+      <%- description_webview %>
+      </p>
+  </div>
+  <div class="line-container">
+    <div class="line"></div>
+  </div>
+  <div class="footer-logo">
+    <img src="<%= basePath %>/stylesheets/images_webview/screenshot3.png" alt="" style="width: 100%;">
+  </div>
+</body>
+
+</html>
